@@ -3,24 +3,46 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
-.factory('Friends', function() {
-  // Might use a resource here that returns a JSON array
+    .factory('User', ["$timeout","$firebase", function($timeout,$firebase ) {
+      var ref = new Firebase('https://studentmanageionic.firebaseio.com/');
+      var auth = $firebase(ref);
+      var user = {};
 
-  // Some fake testing data
-  var friends = [
-    { id: 0, name: 'Scruff McGruff' },
-    { id: 1, name: 'G.I. Joe' },
-    { id: 2, name: 'Miss Frizzle' },
-    { id: 3, name: 'Ash Ketchum' }
-  ];
+      return {
+        login: function(email, password, callback) {
+          ref.authWithPassword('password', {
+            email: email,
+            password: password,
+            rememberMe: false
+          }).then(function(res) {
+            user = res;
+            if (callback) {
+              $timeout(function() {
+                callback(res);
+              });
+            }
+          }, function(err) {
+            callback(err);
+          });
+        },
+        register: function(email, password, callback) {
+          ref.createUser({email:email, password:password},function(res) {
+            user = res;
+            if (callback) {
+              callback(res);
+            }
+          })
+          //    function(err) {
+          //  callback(err);
+          //});
+        },
+        getUser: function() {
+          return user;
+        },
+        logout: function() {
+          ref.unauth();
+          user = {};
+        }
+      }
 
-  return {
-    all: function() {
-      return friends;
-    },
-    get: function(friendId) {
-      // Simple index lookup
-      return friends[friendId];
-    }
-  }
-});
+    }]);
