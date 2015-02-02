@@ -10,11 +10,11 @@ angular.module('starter.services', [])
 
       return {
         login: function(email, password, callback) {
-          ref.authWithPassword('password', {
+          ref.authWithPassword({
             email: email,
             password: password,
             rememberMe: false
-          }).then(function(res) {
+          },function(err,res) {
             user = res;
             if (callback) {
               $timeout(function() {

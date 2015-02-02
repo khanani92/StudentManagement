@@ -16,8 +16,9 @@ angular.module('starter.controllers', [])
 
    $scope.login = function () {
      User.login($scope.user.email, $scope.user.password, function(res) {
-       if (res.id) {
+       if (res.uid) {
          $scope.user = res;
+           console.log(res)
          } else {
          $ionicPopup.alert({
            title: 'Login error!',
@@ -29,7 +30,7 @@ angular.module('starter.controllers', [])
 
  $scope.register = function () {
    User.register($scope.user.email, $scope.user.password, function(res) {
-     if (res.id) {
+     if (res.uid) {
        $scope.user = res;
        } else {
        $ionicPopup.alert({

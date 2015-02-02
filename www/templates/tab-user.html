@@ -1,5 +1,5 @@
 <ion-view title="User">
-  <ion-content has-header="true" padding="true" ng-show="user.id != undefined">
+  <ion-content has-header="true" padding="true" ng-show="user.uid != undefined">
     <div class="list card">
       <div class="item item-divider">
         Email
@@ -33,8 +33,7 @@
       </div>
     </div>
   </ion-content>
-  <ion-content has-header="true" padding="true" class="vcenter" ng-s\
-               how="user.id == undefined">
+  <ion-content has-header="true" padding="true" class="vcenter" ng-show="user.uid == undefined">
     <div class="row row-center">
       <div class="col col-center">
         Look like there is no user.id variable so you need to login

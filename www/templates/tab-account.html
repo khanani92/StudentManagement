@@ -1,6 +1,6 @@
 <ion-view title="Account">
 
-  <ion-content class="has-header padding" ng-show="user.id == undefined">
+  <ion-content class="has-header padding" ng-show="user.uid == undefined">
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Email</span>
@@ -19,11 +19,11 @@
     </div>
   </ion-content>
 
-  <ion-content class="has-header padding" ng-show="user.id != undefined">
+  <ion-content class="has-header padding" ng-show="user.uid != undefined">
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Login as</span>
-        <span class="">{{ user.email }}</span>
+        <span class="">{{ user.password.email }}</span>
       </label>
       <button class="button button-block button-positive" ng-click="logout()">
         Logout
