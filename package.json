@@ -1,7 +1,7 @@
 {
-  "name": "UserManagement",
+  "name": "User-Auth-Demo",
   "version": "1.0.0",
-  "description": "User Management System using Ionic and FireBase",
+  "description": "User Auth Demo using Ionic and FireBase",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
