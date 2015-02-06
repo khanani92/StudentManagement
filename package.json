@@ -1,7 +1,7 @@
 {
-  "name": "authentication-app",
+  "name": "UserManagement",
   "version": "1.0.0",
-  "description": "authentication-app: An Ionic project",
+  "description": "User Management System using Ionic and FireBase",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
