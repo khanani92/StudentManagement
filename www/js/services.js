@@ -37,12 +37,40 @@ angular.module('starter.services', [])
           //});
         },
         getUser: function() {
-          return user;
+        return user;
         },
         logout: function() {
           ref.unauth();
           user = {};
-        }
+            return user;
+        },
+         changeEmail: function(oldEmail,newEmail,callback){
+             /*ref.changePassword({
+                 email       : "user@user.com",
+                 oldPassword : "abc",
+                 newPassword : "abcd"
+             }, function(error) {
+                 if (error === null) {
+                     console.log("Email changed successfully");
+                 } else {
+                     console.log("Error changing email:", error);
+                 }
+             }); */
+
+
+             ref.changeEmail({
+                 oldEmail : oldEmail,
+                 newEmail : newEmail
+             }, function(error) {
+                 if (error === null) {
+                     callback('Your email is changed')
+                 } else {
+                     callback(error)
+                 }
+             });
+         }
+
+
       }
 
     }]);

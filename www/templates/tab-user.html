@@ -1,11 +1,20 @@
 <ion-view title="User">
+
   <ion-content has-header="true" padding="true" ng-show="user.uid != undefined">
     <div class="list card">
       <div class="item item-divider">
         Email
       </div>
       <div class="item item-text-wrap">
-        {{ user.email }}
+          <div class="row">
+
+              <div class="col col-75"><input type="text" placeholder="{{ user.password.email }}" ng-model="changeData.email"></div>
+              <div class="col">
+                  <button class="button button-small button-positive" ng-click="changeEmail()">
+                      Change Email
+                  </button>
+              </div>
+          </div>
       </div>
     </div>
     <div class="list card">
@@ -13,7 +22,7 @@
         firebaseAuthToken
       </div>
       <div class="item item-text-wrap">
-        {{ user.firebaseAuthToken }}
+        {{ user.token }}
       </div>
     </div>
     <div class="list card">
@@ -21,18 +30,10 @@
         id
       </div>
       <div class="item item-text-wrap">
-        {{ user.id }}
+        {{ user.uid }}
       </div>
     </div>
-    <div class="list card">
-      <div class="item item-divider">
-        md5_hash
-      </div>
-      <div class="item item-text-wrap">
-        {{ user.md5_hash }}
-      </div>
-    </div>
-  </ion-content>
+      </ion-content>
   <ion-content has-header="true" padding="true" class="vcenter" ng-show="user.uid == undefined">
     <div class="row row-center">
       <div class="col col-center">
